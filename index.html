@@ -64,7 +64,23 @@
            newSpan.remove();
         },3000)
         })
+  body.addEventListener("touchmove",e=>{
+        const xpos = e.offsetX;
+        const ypos = e.offsetY;
 
+        const newSpan = document.createElement('span');
+        
+        newSpan.style.left = xpos + "px";
+        newSpan.style.top = ypos + "px";
+        const size = Math.random()*100;
+        newSpan.style.width = size + "px";
+        newSpan.style.height = size + "px";
+
+        body.appendChild(newSpan);
+        setTimeout(()=>{
+           newSpan.remove();
+        },3000)
+        })
       
         
     </script>
