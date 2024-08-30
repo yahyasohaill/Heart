@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart-trail Animation</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        height: 100vh;
+        background-color: black;
+        overflow: hidden;
+    }
+    span{
+        background:url("icons8-heart-40.png");
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        background-size: cover;
+        pointer-events: none;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        animation: animate 6s linear;
+    }
+
+    @keyframes animate{
+        0%{
+            transform: translate(-50%,-50%);
+            opacity: 1;
+            filter: hue-rotate(0);
+        }
+        100%{
+            transform: translate(-50%,-5000%);
+            opacity: 0;
+            filter: hue-rotate(1080deg);
+        }
+    }
+</style>
+<body>
+</body>
+    <script>
+        const body = document.querySelector("body");
+
+        body.addEventListener("mousemove",e=>{
+        const xpos = e.offsetX;
+        const ypos = e.offsetY;
+
+        const newSpan = document.createElement('span');
+        
+        newSpan.style.left = xpos + "px";
+        newSpan.style.top = ypos + "px";
+        const size = Math.random()*100;
+        newSpan.style.width = size + "px";
+        newSpan.style.height = size + "px";
+
+        body.appendChild(newSpan);
+        setTimeout(()=>{
+           newSpan.remove();
+        },3000)
+        })
+
+      
+        
+    </script>
+</html>
